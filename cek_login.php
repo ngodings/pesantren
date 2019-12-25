@@ -19,7 +19,7 @@
                     print "password yang anda masukkan salah";
                 }else {
                 $_SESSION['email']=$hasil['email'];
-                header("location:modul/santri/dashboard.php");
+                header("location: dashboard.php");
                 }
 			}
 	
