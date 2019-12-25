@@ -43,13 +43,13 @@
           <div class="form-group">
             <div class="form-label-group">
               <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Email address</label>
+              <label for="email">Email address</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
               <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
-              <label for="inputPassword">Password</label>
+              <label for="password">Password</label>
             </div>
           </div>
           <div class="form-group">
