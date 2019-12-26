@@ -48,7 +48,16 @@
     </div> 
 
 
+<?php
+  
+  session_start();
+  if(isset($_SESSION['email'])){
+  header('location: dashboard.php');
+  require_once("conn.php");
 
+ }
+	
+?>
 
 
 
