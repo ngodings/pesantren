@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>PENCAPAIAN PESANTREN</title>
+  <title>PENCAPAIAN PESANTREN ---</title>
 
   <!-- Custom fonts for this template-->
   <link href="modul/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
