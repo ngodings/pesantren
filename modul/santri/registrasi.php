@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>PESANTREN</title>
+  <title>SANTRI</title>
 
   <!-- Custom fonts for this template-->
   <link href="../template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,57 +22,42 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
 
-<div class="container">
-        <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form method="POST" action="cek_login.php">
+        <form>
+        <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
+              <label for="nama">Full name</label>
+            </div>
+          </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
               <label for="email">Email address</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
-              <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Password" required="required">
+                <label for="password">Password</label>
             </div>
           </div>
-          <div class="form-group">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="remember-me">
-                Remember Password
-              </label>
-            </div>
-          </div>
-          <input type="submit" class="btn btn-primary btn-block" value="login"></input>
+          <a class="btn btn-primary btn-block" href="login.html">Register</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="registrasi.php">Register an Account</a>
+          <a class="d-block small mt-3" href="index.php">Login Page</a>
           <a class="d-block small" href="reset_password.php">Forgot Password?</a>
         </div>
       </div>
-    </div> 
+    </div>
+  </div>
 
-<?php
-  
-  session_start();
-  if(isset($_SESSION['email'])){
-  header('location: dashboard.php');
-  require_once("conn.php");
-
- }
-	
-?>
-
-
-
-
-  <script src="../template/vendor/jquery/jquery.min.js"></script>
+<script src="../template/vendor/jquery/jquery.min.js"></script>
   <script src="../template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
@@ -92,4 +77,3 @@
 
 </body>
 </html>
-
