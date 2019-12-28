@@ -78,7 +78,12 @@ if(!isset($_SESSION['email'])) {
      
           <div class="card-body">
           <form method="POST" action="input_ustad.php">
-      
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="id" id="id" class="form-control" placeholder="Full name" required="required">
+                    <label for="id">ID Ustad</label>
+                  </div>
+                </div>
                 <div class="form-group">
                   <div class="form-label-group">
                     <input type="text" name="namaUstad" id="namaUstad" class="form-control" placeholder="Full name" required="required">
@@ -99,17 +104,17 @@ if(!isset($_SESSION['email'])) {
                 </div>
                 <div class="form-group">
                   <div class="form-label-group">
-                      <input type="password" id="passwordUstad" class="form-control" placeholder="Password" required="required">
+                      <input type="password" name="passwordUstad" id="passwordUstad" class="form-control" placeholder="Password" required="required">
                       <label for="passwordUstad">Password</label>
                   </div>
                 </div>
 
-                <input type="submit" name="inputUstad" class="btn btn-primary btn-block" ></input>
+                <input type="submit" name="inputUstad" class="btn btn-primary btn-block"></input>
               </form> 
           </div>
         
 
-          <!-- Breadcrumbs-->
+        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
@@ -118,50 +123,80 @@ if(!isset($_SESSION['email'])) {
         </ol>
 
         <div class="card-body">
-          <form method="GET" action="dashboard.php?modul=santri">
-              <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
-                    <label for="nama">Full name</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                      <input type="text" id="kelas" class="form-control" placeholder="Class" required="required">
-                      <label for="kelas">Class</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                      <input type="text" id="asal" class="form-control" placeholder="Address" required="required">
-                      <label for="asal">Address</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
-                    <label for="email">Email address</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                      <input type="password" id="password" class="form-control" placeholder="Password" required="required">
-                      <label for="password">Password</label>
-                  </div>
-                </div>
-
-                <input type="submit" class="btn btn-primary btn-block" ></input>
-              </form> 
+        <form method="POST" action="input_santri.php">
+      <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" name="idSantri" id="idSantri" class="form-control" placeholder="ID" required="required">
+              <label for="idSantri">ID</label>
+            </div>
           </div>
+        <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
+              <label for="nama">Full name</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="text" name="kelas" id="kelas" class="form-control" placeholder="Class" required="required">
+                <label for="kelas">Class</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="text" name="asal" id="asal" class="form-control" placeholder="Address" required="required">
+                <label for="asal">Address</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
+              <label for="email">Email address</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
+                <label for="password">Password</label>
+            </div>
+          </div>
+
+          <input type="submit" name="submit" class="btn btn-primary btn-block" ></input>
+        </form>
+  
+          </div>
+
+                  <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Hapus Akun</li>
+        </ol>
+
+        <div class="card-body">
+        <form method="POST" action="hapus_akun.php">
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="email" name="emailAkun" id="emailAkun" class="form-control" placeholder="email" required="required">
+                  <label for="emailAkun">email</label>
+                </div>
+              </div>
+          <div class="form-group">
+            <select class="form-control" name="jenisAkun" required="required">
+              <option disabled selected value> -- Choose One --</option>
+              <option value="Ustad">Ustad</option>
+              <option value="Santri">Santri</option>
+            </select>
+          </div>
+
+          <input type="submit" name="hapusAkun" class="btn btn-primary btn-block" ></input>
+        </form>
+      </div>
+
+
     </div>
   </div>
-
-
-<?php
-
-
-
-?>
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
