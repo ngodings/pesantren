@@ -29,7 +29,12 @@
       <div class="card-header">Register an Account</div>
       <div class="card-body">
       <form method="POST" action="cek_regis.php">
-      <input type="hidden" name="id_santri" >
+      <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" name="id" id="id" class="form-control" placeholder="ID" required="required">
+              <label for="id">ID</label>
+            </div>
+          </div>
         <div class="form-group">
             <div class="form-label-group">
               <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
@@ -38,13 +43,13 @@
           </div>
           <div class="form-group">
             <div class="form-label-group">
-                <input type="text" id="kelas" class="form-control" placeholder="Class" required="required">
+                <input type="text" name="kelas" id="kelas" class="form-control" placeholder="Class" required="required">
                 <label for="kelas">Class</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-                <input type="text" id="asal" class="form-control" placeholder="Address" required="required">
+                <input type="text" name="asal" id="asal" class="form-control" placeholder="Address" required="required">
                 <label for="asal">Address</label>
             </div>
           </div>
@@ -56,12 +61,12 @@
           </div>
           <div class="form-group">
             <div class="form-label-group">
-                <input type="password" id="password" class="form-control" placeholder="Password" required="required">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
                 <label for="password">Password</label>
             </div>
           </div>
 
-          <input type="submit" class="btn btn-primary btn-block" ></input>
+          <input type="submit" name="submit" class="btn btn-primary btn-block" ></input>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="index.php">Login Page</a>

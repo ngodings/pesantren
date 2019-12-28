@@ -77,42 +77,37 @@ if(!isset($_SESSION['email'])) {
         </ol>
      
           <div class="card-body">
-          <form method="GET" action="dashboard.php?modul=ustad">
+          <form method="POST" action="input_ustad.php">
       
-              <div class="form-group">
+                <div class="form-group">
                   <div class="form-label-group">
-                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
-                    <label for="nama">Full name</label>
+                    <input type="text" name="namaUstad" id="namaUstad" class="form-control" placeholder="Full name" required="required">
+                    <label for="namaUstad">Full name</label>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="form-label-group">
-                      <input type="text" id="kelas" class="form-control" placeholder="Class" required="required">
-                      <label for="kelas">Class</label>
+                    <input type="text" name="nip" id="nip" class="form-control" placeholder="Full name" required="required">
+                    <label for="nip">NIP</label>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="form-label-group">
-                      <input type="text" id="asal" class="form-control" placeholder="Address" required="required">
-                      <label for="asal">Address</label>
+                    <input type="email" name="emailUstad" id="emailUstad" class="form-control" placeholder="Email address" required="required">
+                    <label for="emailUstad">Email address</label>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="form-label-group">
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
-                    <label for="email">Email address</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                      <input type="password" id="password" class="form-control" placeholder="Password" required="required">
-                      <label for="password">Password</label>
+                      <input type="password" id="passwordUstad" class="form-control" placeholder="Password" required="required">
+                      <label for="passwordUstad">Password</label>
                   </div>
                 </div>
 
-                <input type="submit" class="btn btn-primary btn-block" ></input>
+                <input type="submit" name="inputUstad" class="btn btn-primary btn-block" ></input>
               </form> 
           </div>
+        
 
           <!-- Breadcrumbs-->
         <ol class="breadcrumb">
@@ -124,7 +119,6 @@ if(!isset($_SESSION['email'])) {
 
         <div class="card-body">
           <form method="GET" action="dashboard.php?modul=santri">
-            <input type="hidden" name="id_santri" >
               <div class="form-group">
                   <div class="form-label-group">
                     <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
