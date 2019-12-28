@@ -5,6 +5,7 @@ if(!isset($_SESSION['email'])) {
    header('location:index.php'); 
 } else { 
    $email = $_SESSION['email']; 
+   
 
 }
 ?>
@@ -32,7 +33,146 @@ if(!isset($_SESSION['email'])) {
 
 </head>
 
-<body>
+<body id="page-top">
+
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="dashboard.php">DASHBOARD ADMIN</a>
+
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto mr-0">
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+         <form method="POST" action="logout.php">
+          <a class="dropdown-item" href="logout.php" type="submit">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+    </ul>
+    <br>
+    <div class="container-fluid">
+          <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Tambah data ustad</li>
+        </ol>
+     
+          <div class="card-body">
+          <form method="GET" action="dashboard.php?modul=ustad">
+      
+              <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
+                    <label for="nama">Full name</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="text" id="kelas" class="form-control" placeholder="Class" required="required">
+                      <label for="kelas">Class</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="text" id="asal" class="form-control" placeholder="Address" required="required">
+                      <label for="asal">Address</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
+                    <label for="email">Email address</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="password" id="password" class="form-control" placeholder="Password" required="required">
+                      <label for="password">Password</label>
+                  </div>
+                </div>
+
+                <input type="submit" class="btn btn-primary btn-block" ></input>
+              </form> 
+          </div>
+
+          <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Tambah data santri</li>
+        </ol>
+
+        <div class="card-body">
+          <form method="GET" action="dashboard.php?modul=santri">
+            <input type="hidden" name="id_santri" >
+              <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
+                    <label for="nama">Full name</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="text" id="kelas" class="form-control" placeholder="Class" required="required">
+                      <label for="kelas">Class</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="text" id="asal" class="form-control" placeholder="Address" required="required">
+                      <label for="asal">Address</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
+                    <label for="email">Email address</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="password" id="password" class="form-control" placeholder="Password" required="required">
+                      <label for="password">Password</label>
+                  </div>
+                </div>
+
+                <input type="submit" class="btn btn-primary btn-block" ></input>
+              </form> 
+          </div>
+    </div>
+  </div>
+
+
+<?php
+
+
+
+?>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
 <script src="../template/vendor/jquery/jquery.min.js"></script>
   <script src="../template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

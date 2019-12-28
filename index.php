@@ -31,7 +31,7 @@
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">SANTRI</a>
     </div>
     <div class="card card-register mx-auto mt-5">
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">ADMIN</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/admin">ADMIN</a>
     </div>
 </div>  
 

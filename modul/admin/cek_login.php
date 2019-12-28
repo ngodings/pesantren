@@ -7,11 +7,11 @@
 
         $email = $_POST['email'];
         $password = $_POST['password'];
-		$sql="SELECT * FROM db_tbl_admin WHERE email='$email'";
-		$query=mysqli_query($koneksi,$sql);
-		$hasil= $query->fetch_assoc();
+		$masuk="SELECT * FROM db_tbl_admin WHERE email='$email'";
+		$login=mysqli_query($koneksi,$masuk);
+		$hasil= $login->fetch_assoc();
         
-			if($query->num_rows == 0){
+			if($login->num_rows == 0){
 				print "email yang anda masukkan 
 				tidak terdaftar";
 			}else {

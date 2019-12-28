@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Des 2019 pada 15.04
+-- Waktu pembuatan: 28 Des 2019 pada 07.42
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -40,7 +40,8 @@ CREATE TABLE `db_tbl_admin` (
 --
 
 INSERT INTO `db_tbl_admin` (`username`, `email`, `nama`, `password`) VALUES
-('M3118076', 'rike@gmail.com', 'RIKE AQILA NURFI', 'cantik');
+('M3118076', 'rike@gmail.com', 'RIKE AQILA NURFI', 'cantik'),
+('rikeaqi', 'rikea@gmail.com', 'rike', 'rike');
 
 -- --------------------------------------------------------
 
@@ -79,8 +80,8 @@ CREATE TABLE `db_tbl_pesan` (
 CREATE TABLE `db_tbl_santri` (
   `id_santri` varchar(10) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `kelas` int(255) NOT NULL,
-  `asal` text NOT NULL,
+  `kelas` varchar(255) NOT NULL,
+  `asal` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -90,7 +91,8 @@ CREATE TABLE `db_tbl_santri` (
 --
 
 INSERT INTO `db_tbl_santri` (`id_santri`, `nama`, `kelas`, `asal`, `email`, `password`) VALUES
-('SA190001', 'RIko Isnaini', 10, 'boyolali', 'riko@gmail.com', 'riko');
+('', 'Ryan Aditia', '', '', 'riskymiusdienha@student.uns.ac.id', ''),
+('SANTR0001', 'RIko Isnaini', '10', 'boyolali', 'riko@gmail.com', 'riko');
 
 -- --------------------------------------------------------
 

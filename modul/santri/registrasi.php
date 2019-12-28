@@ -28,11 +28,24 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form>
+      <form method="POST" action="cek_regis.php">
+      <input type="hidden" name="id_santri" >
         <div class="form-group">
             <div class="form-label-group">
               <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
               <label for="nama">Full name</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="text" id="kelas" class="form-control" placeholder="Class" required="required">
+                <label for="kelas">Class</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="text" id="asal" class="form-control" placeholder="Address" required="required">
+                <label for="asal">Address</label>
             </div>
           </div>
           <div class="form-group">
@@ -47,7 +60,8 @@
                 <label for="password">Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+
+          <input type="submit" class="btn btn-primary btn-block" ></input>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="index.php">Login Page</a>
@@ -56,6 +70,8 @@
       </div>
     </div>
   </div>
+
+
 
 <script src="../template/vendor/jquery/jquery.min.js"></script>
   <script src="../template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
