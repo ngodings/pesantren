@@ -68,56 +68,75 @@ if(!isset($_SESSION['email'])) {
     </ul>
     <br>
     <div class="container-fluid">
-        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Tambah data santri</li>
-        </ol>
-
-        <div class="card-body">
-        <form method="POST" action="input_santri.php">
-      <div class="form-group">
-            <div class="form-label-group">
-              <input type="text" name="idSantri" id="idSantri" class="form-control" placeholder="ID" required="required">
-              <label for="idSantri">ID</label>
+          <li class="breadcrumb-item active">Overview</li>
+        </ol> 
+        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                <?php
+                include "conn.php";
+                $sqlnya = "SELECT * FROM db_tbl_hafalan";
+                $queryi = mysqli_query($koneksi,$sqlnya);
+                $result = mysqli_num_rows($queryi);
+                ?>
+                <div class="card-body-icon">
+                  <i class="fas fa-fw fa-list"></i>
+                </div>
+                <div class="mr-5"><?php echo "Terdapat $result riwayat hafalan seluruh pesantren!";?></div>
+              </div>
             </div>
           </div>
-        <div class="form-group">
-            <div class="form-label-group">
-              <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
-              <label for="nama">Full name</label>
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                <?php
+                include "conn.php";
+                $sql1 = "SELECT * FROM db_tbl_softskill";
+                $query1 = mysqli_query($koneksi,$sql1);
+                $result1 = mysqli_num_rows($query1);
+                ?>
+                <div class="card-body-icon">
+                  <i class="fas fa-fw fa-list"></i>
+                </div>
+                <div class="mr-5"><?php echo "Terdapat $result1 riwayat softskill seluruh pesantren!";?></div>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="form-label-group">
-                <input type="text" name="kelas" id="kelas" class="form-control" placeholder="Class" required="required">
-                <label for="kelas">Class</label>
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                <?php
+                include "conn.php";
+                $sql2 = "SELECT * FROM db_tbl_santri";
+                $query2 = mysqli_query($koneksi,$sql2);
+                $result2 = mysqli_num_rows($query2);
+                ?>
+                <div class="card-body-icon">
+                  <i class="fas fa-fw fa-list"></i>
+                </div>
+                <div class="mr-5"><?php echo "Terdapat $result2 santri di seluruh pesantren!";?></div>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="form-label-group">
-                <input type="text" name="asal" id="asal" class="form-control" placeholder="Address" required="required">
-                <label for="asal">Address</label>
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                <?php
+                include "conn.php";
+                $sql3 = "SELECT * FROM db_tbl_ustad";
+                $query3 = mysqli_query($koneksi,$sql3);
+                $result3 = mysqli_num_rows($query3);
+                ?>
+                <div class="card-body-icon">
+                  <i class="fas fa-fw fa-list"></i>
+                </div>
+                <div class="mr-5"><?php echo "Terdapat $result3 ustad di seluruh pesantren!";?></div>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
-              <label for="email">Email address</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
-                <label for="password">Password</label>
-            </div>
-          </div>
-
-          <input type="submit" name="submit" class="btn btn-primary btn-block" ></input>
-        </form>
-  
           </div>
 
           <!-- Breadcrumbs-->
@@ -210,7 +229,57 @@ if(!isset($_SESSION['email'])) {
                 <input type="submit" name="input" class="btn btn-primary btn-block"></input>
               </form> 
           </div>
+          <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Tambah data santri</li>
+        </ol>
 
+        <div class="card-body">
+        <form method="POST" action="santri.php">
+      <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" name="idSantri" id="idSantri" class="form-control" placeholder="ID" required="required">
+              <label for="idSantri">ID</label>
+            </div>
+          </div>
+        <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" name="nama" id="nama" class="form-control" placeholder="Full name" required="required">
+              <label for="nama">Full name</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="text" name="kelas" id="kelas" class="form-control" placeholder="Class" required="required">
+                <label for="kelas">Class</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="text" name="asal" id="asal" class="form-control" placeholder="Address" required="required">
+                <label for="asal">Address</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="required">
+              <label for="email">Email address</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
+                <label for="password">Password</label>
+            </div>
+          </div>
+
+          <input type="submit" name="tambahSantri" class="btn btn-primary btn-block" ></input>
+        </form>
+  
+          </div>
       <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">

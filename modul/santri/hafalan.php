@@ -100,6 +100,8 @@ if(!isset($_SESSION['email'])) {
                     <tr>
                         <th>No</th>
                         <th>Tanggal Pelaksanaan</th>
+                        <th>Surah</th>
+                        <th>Juz</th>
                         <th>Pencapaian Hafalan (@lembar)</th>
                         <th>Ustad Pengampu</th>
 
@@ -127,6 +129,8 @@ if(!isset($_SESSION['email'])) {
                   <?php  ?>
                     <td><?php print $temp++;?></td>
                     <td><?php print $row['tanggal_hafalan'];?></td>
+                    <td><?php print $row['surah'];?></td>
+                    <td><?php print $row['juz'];?></td>
                     <td><?php print $row['pencapaian_hafalan'];?></td>
                     <td><?php print $row['nama'];?></th></td>
                   </tr>
@@ -149,6 +153,7 @@ if(!isset($_SESSION['email'])) {
 
   <!-- Core plugin JavaScript-->
   <script src="../template/vendor/jquery-easing/jquery.easing.min.js"></script>
+
 
   <!-- Page level plugin JavaScript-->
   <script src="../template/vendor/chart.js/Chart.min.js"></script>

@@ -109,7 +109,19 @@ if(!isset($_SESSION['email'])) {
           </div>
           <div class="form-group">
             <div class="form-label-group">
-                <input type="number" name="pencapaian" id="pencapaian" class="form-control" placeholder="Pencapaianr" required="required">
+                <input type="text" name="surah" id="surah" class="form-control" placeholder="Surah" required="required">
+                <label for="surah">Surah</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="number" name="juz" id="juz" class="form-control" placeholder="Juz" required="required">
+                <label for="juz">Juz</label>
+            </div>
+            </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="number" name="pencapaian" id="pencapaian" class="form-control" placeholder="Pencapaian" required="required">
                 <label for="pencapaian">Pencapaian</label>
             </div>
           </div>

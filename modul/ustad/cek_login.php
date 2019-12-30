@@ -12,11 +12,16 @@
          $hasil= $query->fetch_assoc();
          
              if($query->num_rows == 0){
-                 print "email yang anda masukkan 
-                 tidak terdaftar";
+                echo '<script language="javascript">
+                alert ("Akun tidak terdaftar");
+                window.location="index.php";
+                </script>';
              }else {
                  if ($password != $hasil['password']){
-                     print "password yang anda masukkan salah";
+                    echo '<script language="javascript">
+                    alert ("Password salah");
+                    window.location="index.php";
+                    </script>';
                  }else {
                  $_SESSION['email']=$hasil['email'];
                  header("location:dashboard.php");

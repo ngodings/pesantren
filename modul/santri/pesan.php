@@ -85,61 +85,55 @@ if(!isset($_SESSION['email'])) {
           <span>Pesan</span></a>
       </li>
 </ul>
+  <div class="container-fluid">
+  <div class="card-body">
+        <?php
 
-<div class="container-fluid">
-
-<!-- DataTables -->
-<div class="card mb-3">
-    <div class="card-header">
-        <h5>Tabel Hafalan</h5>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Tanggal Pelaksanaan</th>
-                        <th>Pidato (@pelaksanaan)</th>
-                        <th>Imam (@pelaksanaan)</th>
-                        <th>Ustad Pengampu</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    include 'conn.php';
-                    $santri = $_SESSION['email'];
-                    $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
-                    $query = mysqli_query($koneksi,$cek);
-                    $rows= mysqli_fetch_array($query);
-                    $row1=$rows['id_santri'];
-                    $pilih= "SELECT * FROM db_tbl_softskill h JOIN db_tbl_ustad u ON u.id_ustad = h.id_ustad  WHERE h.id_santri='$row1'";
-                    $kueri = mysqli_query($koneksi,$pilih);
-                    // $row= mysqli_fetch_array($kueri);
-                    // $ustad=$row['id_ustad'];
-                    // $cek_ustad = "SELECT nama FROM db_tbl_ustad WHERE id_ustad='$ustad'";
-                    // $query_ust = mysqli_query($koneksi,$cek_ustad);
-                    // $row2=mysqli_fetch_array($query_ust);
-                    $temp=1;
-                    while($row = mysqli_fetch_array($kueri)){
-                    ?>
-                  <tr>
-                    <td><?php print $temp++;?></td>
-                    <td><?php print $row['tanggal_pelaksanaan'];?></td>
-                    <td><?php print $row['pidato'];?></td>
-                    <td><?php print $row['imam'];?></td>
-                    <td><?php print $row['nama'];?></th></td>
-                  </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+        include 'conn.php';
+        $cek_dulu = "SELECT * FROM db_tbl_pesan ORDER BY id_pesan DESC LIMIT 0,1";
+        $mydata = mysqli_query($koneksi, $cek_dulu);
+        $row= mysqli_fetch_array($mydata);
+        // ID OTOMATIS//***************************************************
+        $awal=substr($row['id_pesan'],3,4)+1;
+        if($awal<10){
+          $auto='PSN0000'.$awal;
+        }elseif($awal > 9 && $awal <=99){
+          $auto='PSN000'.$awal;
+        }else{
+          $auto='PSN00'.$awal;
+        }
+        
+        ?>
+        <form method="POST" action="kirim_pesan.php">
+          <div class="form-group">
+                <div class="form-label-group">
+                <input type="text" name="kode" id="kode" value="<?php echo $auto ;?>" readonly>
+                  <label for="kode">ID</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" name="name" id="name" class="form-control" placeholder="name" required="required">
+                  <label for="name">Your Name</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="email" name="email" id="email" class="form-control" placeholder="email" required="required">
+                  <label for="email">Your Email</label>
+                </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                  <textarea class="form-control" id="message"  name="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                  <p class="help-block text-danger"></p>
+            </div>
         </div>
+          <input type="submit" name="kirim" class="btn btn-primary btn-block" ></input>
+        </form>
+      </div>
     </div>
 </div>
-</div>
-
-
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">

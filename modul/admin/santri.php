@@ -1,7 +1,7 @@
 <?php
         include 'conn.php';
         //require_once("conn.php");
-        if(isset($_POST['submit'])) {
+        if(isset($_POST['tambahSantri'])) {
             
 
             $email = $_POST['email'];
@@ -30,7 +30,6 @@
             $password = $_POST['password'];
 
             $tambah_data = "INSERT INTO db_tbl_santri VALUES ('$id','$nama', '$kelas', '$asal', '$email', '$password')";
-            //$tambah_data = mysqli_num_rows(mysqli_query($koneksi,$tambah));
             $cek_tambah = mysqli_query($koneksi,$tambah_data);
 
             //cho $email;

@@ -87,7 +87,7 @@ if(!isset($_SESSION['email'])) {
 </ul>
   <div class="container-fluid">
     <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
+        <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
           </li>
