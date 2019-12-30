@@ -122,7 +122,7 @@ if(!isset($_SESSION['email'])) {
                     // $query_ust = mysqli_query($koneksi,$cek_ustad);
                     // $row2=mysqli_fetch_array($query_ust);
                     $temp=1;
-                    while($row = mysqli_fetch_array($query)){
+                    while($row = mysqli_fetch_array($kueri)){
                     ?>
                   <tr>
                     <td><?php print $temp++;?></td>
