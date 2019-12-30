@@ -7,6 +7,7 @@ if(!isset($_SESSION['email'])) {
    $email = $_SESSION['email']; 
 
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,27 +61,131 @@ if(!isset($_SESSION['email'])) {
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
   <li class="nav-item active">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="tambah.php">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span>
     </a>
   </li>
-  <li class="nav-item">
-        <a class="nav-link" href="hafalan.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Hafalan</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="softskill.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Softskill</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pesan.php">
-          <i class="fas fa-fw fa-mail-bulk"></i>
-          <span>Pesan</span></a>
-      </li>
 </ul>
+<div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Penilaian Hafalan</a>
+          </li>
+          <li class="breadcrumb-item active">Tambahkan untuk penilaian setiap santri!</li>
+        </ol>
+
+        <div class="card-body">
+        <?php
+
+        include 'conn.php';
+        $cek = "SELECT * FROM db_tbl_hafalan ORDER BY id_hafalan DESC LIMIT 0,1";
+        $data = mysqli_query($koneksi, $cek);
+        $rows= mysqli_fetch_array($data);
+        // ID OTOMATIS//***************************************************
+        $kodeawal=substr($rows['id_hafalan'],3,4)+1;
+        if($kodeawal<10){
+          $kode='HA0000'.$kodeawal;
+        }elseif($kodeawal > 9 && $kodeawal <=99){
+          $kode='HA000'.$kodeawal;
+        }else{
+          $kode='HA00'.$kodeawal;
+        }
+        
+        ?>
+      <form method="POST" action="hafalan.php">
+      <div class="form-group">
+            <div class="form-label-group">
+            <input type="text" name="id" id="id" value="<?php echo $kode ;?>" readonly>
+              <label>ID</label>
+            </div>
+          </div> 
+        <div class="form-group">
+            <div class="form-label-group">
+              <input type="date" name="tanggalHafalan" id="tanggalHafalan" class="form-control" placeholder="Full name" required="required">
+              <label for="tanggalHafalan">Date</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+                <input type="number" name="pencapaian" id="pencapaian" class="form-control" placeholder="Pencapaianr" required="required">
+                <label for="pencapaian">Pencapaian</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" name="idSantri" id="idSantri" class="form-control" placeholder="ID Santri" required="required">
+              <label for="idSantri">ID Santri</label>
+            </div>
+          </div>
+
+
+          <input type="submit" name="submit" class="btn btn-primary btn-block" ></input>
+        </form>
+      </div>
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Penilaian Softskill</a>
+          </li>
+          <li class="breadcrumb-item active">Tambahkan untuk penilaian setiap santri!</li>
+        </ol>
+
+        <div class="card-body">
+        <?php
+
+        include 'conn.php';
+        $cek_dulu = "SELECT * FROM db_tbl_softskill ORDER BY id_softskill DESC LIMIT 0,1";
+        $mydata = mysqli_query($koneksi, $cek_dulu);
+        $row= mysqli_fetch_array($mydata);
+        // ID OTOMATIS//***************************************************
+        $awal=substr($row['id_softskill'],3,4)+1;
+        if($awal<10){
+          $auto='SK0000'.$awal;
+        }elseif($awal > 9 && $awal <=99){
+          $auto='SK000'.$awal;
+        }else{
+          $auto='SK00'.$awal;
+        }
+        
+        ?>
+        <form method="POST" action="softskill.php">
+          <div class="form-group">
+                <div class="form-label-group">
+                <input type="text" name="kode" id="id" value="<?php echo $auto ;?>" readonly>
+                  <label for="kode">ID</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="date" name="pelaksanaan" id="pelaksanaan" class="form-control" placeholder="Tanggal Pelaksanaan" required="required">
+                  <label for="pelaksanaan">Tanggal Pelaksanaan</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" name="id_santri" id="id_santri" class="form-control" placeholder="ID Santri" required="required">
+                  <label for="id_santri">ID Santri</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="number" name="pidato" id="pidato" class="form-control" placeholder="pidato" required="required">
+                  <label for="pidato">Pidato</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="number" name="imam" id="imam" class="form-control" placeholder="imam" required="required">
+                  <label for="imam">Imam</label>
+                </div>
+          </div>
+
+
+          <input type="submit" name="input" class="btn btn-primary btn-block" ></input>
+        </form>
+      </div>
 </div>
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">

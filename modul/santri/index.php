@@ -53,7 +53,6 @@
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="registrasi.php">Register an Account</a>
-          <a class="d-block small" href="reset_password.php">Forgot Password?</a>
         </div>
       </div>
     </div> 

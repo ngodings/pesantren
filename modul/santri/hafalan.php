@@ -85,71 +85,61 @@ if(!isset($_SESSION['email'])) {
           <span>Pesan</span></a>
       </li>
 </ul>
-  <div class="container-fluid">
-    <!-- Breadcrumbs-->
-    <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="dashboard.php">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Overview</li>
-        </ol> 
-        <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
+
+<div class="container-fluid">
+
+<!-- DataTables -->
+<div class="card mb-3">
+    <div class="card-header">
+        <h5>Tabel Hafalan</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal Pelaksanaan</th>
+                        <th>Pencapaian Hafalan (@lembar)</th>
+                        <th>Ustad Pengampu</th>
+
+                    </tr>
+                </thead>
+                <tbody>
                 <?php
-                include "conn.php";
-                $santri2 = $_SESSION['email'];
-                $cek2 = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri2'";
-                $query2 = mysqli_query($koneksi,$cek2);
-                $rows2= mysqli_fetch_array($query2);
-                $row=$rows2['id_santri'];
-                $sqlnya = "SELECT * FROM db_tbl_hafalan WHERE id_santri='$row'";
-                $queryi = mysqli_query($koneksi,$sqlnya);
-                $result = mysqli_num_rows($queryi);
-                ?>
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
-                </div>
-                <div class="mr-5"><?php echo "Terdapat $result riwayat hafalanmu!";?></div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="hafalan.php">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <?php
-                include "conn.php";
-                $santri = $_SESSION['email'];
-                $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
-                $query = mysqli_query($koneksi,$cek);
-                $rows= mysqli_fetch_array($query);
-                $row1=$rows['id_santri'];
-                $sql = "SELECT * FROM db_tbl_softskill WHERE id_santri='$row1' ";
-                $kueri = mysqli_query($koneksi,$sql);
-                $hasil = mysqli_num_rows($kueri);     
-                
-                ?>
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
-                </div>
-                <div class="mr-5"><?php echo "Terdapat $hasil riwayat softskillmu!";?></div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="softskill.php">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-  </div>
+                    include 'conn.php';
+                    $santri = $_SESSION['email'];
+                    $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
+                    $query = mysqli_query($koneksi,$cek);
+                    $rows= mysqli_fetch_array($query);
+                    $row1=$rows['id_santri'];
+                    $pilih= "SELECT * FROM db_tbl_hafalan h JOIN db_tbl_ustad u ON u.id_ustad = h.id_ustad  WHERE h.id_santri='$row1'";
+                    $kueri = mysqli_query($koneksi,$pilih);
+                    // $row= mysqli_fetch_array($kueri);
+                    // $ustad=$row['id_ustad'];
+                    // $cek_ustad = "SELECT nama FROM db_tbl_ustad WHERE id_ustad='$ustad'";
+                    // $query_ust = mysqli_query($koneksi,$cek_ustad);
+                    // $row2=mysqli_fetch_array($query_ust);
+                    $temp=1;
+                    while($row = mysqli_fetch_array($kueri)){
+                    ?>
+                  <tr>
+                  <?php  ?>
+                    <td><?php print $temp++;?></td>
+                    <td><?php print $row['tanggal_hafalan'];?></td>
+                    <td><?php print $row['pencapaian_hafalan'];?></td>
+                    <td><?php print $row['nama'];?></th></td>
+                  </tr>
+                    <?php  } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+</div>
+
+
+
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>

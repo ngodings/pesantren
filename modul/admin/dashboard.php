@@ -68,52 +68,6 @@ if(!isset($_SESSION['email'])) {
     </ul>
     <br>
     <div class="container-fluid">
-          <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="dashboard.php">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Tambah data ustad</li>
-        </ol>
-     
-          <div class="card-body">
-          <form method="POST" action="input_ustad.php">
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="id" id="id" class="form-control" placeholder="Full name" required="required">
-                    <label for="id">ID Ustad</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="namaUstad" id="namaUstad" class="form-control" placeholder="Full name" required="required">
-                    <label for="namaUstad">Full name</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="nip" id="nip" class="form-control" placeholder="Full name" required="required">
-                    <label for="nip">NIP</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="email" name="emailUstad" id="emailUstad" class="form-control" placeholder="Email address" required="required">
-                    <label for="emailUstad">Email address</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                      <input type="password" name="passwordUstad" id="passwordUstad" class="form-control" placeholder="Password" required="required">
-                      <label for="passwordUstad">Password</label>
-                  </div>
-                </div>
-
-                <input type="submit" name="inputUstad" class="btn btn-primary btn-block"></input>
-              </form> 
-          </div>
-        
-
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -166,7 +120,7 @@ if(!isset($_SESSION['email'])) {
   
           </div>
 
-                  <!-- Breadcrumbs-->
+          <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
@@ -194,9 +148,106 @@ if(!isset($_SESSION['email'])) {
         </form>
       </div>
 
+    
+     <!-- Breadcrumbs-->
+     <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Tambah data ustad</li>
+      </ol>
+     
+          <div class="card-body">
+          <?php
+
+          include 'conn.php';
+          $cek_dulu = "SELECT * FROM db_tbl_ustad ORDER BY id_ustad DESC LIMIT 0,1";
+          $mydata = mysqli_query($koneksi, $cek_dulu);
+          $row= mysqli_fetch_array($mydata);
+          // ID OTOMATIS//***************************************************
+          $awal=substr($row['id_ustad'],3,4)+1;
+          if($awal<10){
+            $auto='UST000'.$awal;
+          }elseif($awal > 9 && $awal <=99){
+            $auto='UST00'.$awal;
+          }else{
+            $auto='UST0'.$awal;
+          }
+          
+          ?>
+          <form method="POST" action="ustad.php">
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="id" id="id" value="<?php echo $auto ;?>" readonly>
+                    <label for="id">ID Ustad</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="namaUstad" id="namaUstad" class="form-control" placeholder="Full name" required="required">
+                    <label for="namaUstad">Full name</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="nip" id="nip" class="form-control" placeholder="Full name" required="required">
+                    <label for="nip">NIP</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="email" name="emailUstad" id="emailUstad" class="form-control" placeholder="Email address" required="required">
+                    <label for="emailUstad">Email address</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="password" name="passwordUstad" id="passwordUstad" class="form-control" placeholder="Password" required="required">
+                      <label for="passwordUstad">Password</label>
+                  </div>
+                </div>
+
+                <input type="submit" name="input" class="btn btn-primary btn-block"></input>
+              </form> 
+          </div>
+
+      <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Ganti Password</li>
+        </ol>
+
+        <div class="card-body">
+        <form method="POST" action="password.php">
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="email" name="emailnya" id="emailnya" class="form-control" placeholder="email" required="required">
+                  <label for="emailnya">Email</label>
+                </div>
+          </div>
+          <div class="form-group">
+            <select class="form-control" name="jenis_akun" required="required">
+              <option disabled selected value> -- Choose One --</option>
+              <option value="Ustad">Ustad</option>
+              <option value="Santri">Santri</option>
+            </select>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="password" name="pass_baru" id="pass_baru" class="form-control" placeholder="email" required="required">
+                  <label for="pass_baru">New Password</label>
+                </div>
+          </div>
+          <input type="submit" name="resetPass" class="btn btn-primary btn-block" ></input>
+        </form>
+      </div>
 
     </div>
   </div>
+
+
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
