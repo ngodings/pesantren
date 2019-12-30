@@ -43,7 +43,7 @@ include 'conn.php';
                     // }
                 }
 
-            }else{
+            }else{ //for santri
                 $cek = mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM db_tbl_santri WHERE email='$email'"));
                 if ($cek == 0) {
                     echo '<script language="javascript">
