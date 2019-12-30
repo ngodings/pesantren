@@ -60,14 +60,21 @@ if(!isset($_SESSION['email'])) {
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="santri.php">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Santri</span>
+        </a>
+      </li> -->
     </ul>
     <br>
     <div class="container-fluid">
+
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
@@ -139,97 +146,7 @@ if(!isset($_SESSION['email'])) {
             </div>
           </div>
 
-          <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="dashboard.php">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Hapus Akun</li>
-        </ol>
-
-        <div class="card-body">
-        <form method="POST" action="hapus_akun.php">
-          <div class="form-group">
-                <div class="form-label-group">
-                  <input type="email" name="emailAkun" id="emailAkun" class="form-control" placeholder="email" required="required">
-                  <label for="emailAkun">email</label>
-                </div>
-              </div>
-          <div class="form-group">
-            <select class="form-control" name="jenisAkun" required="required">
-              <option disabled selected value> -- Choose One --</option>
-              <option value="Ustad">Ustad</option>
-              <option value="Santri">Santri</option>
-            </select>
-          </div>
-
-          <input type="submit" name="hapusAkun" class="btn btn-primary btn-block" ></input>
-        </form>
-      </div>
-
-    
-     <!-- Breadcrumbs-->
-     <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="dashboard.php">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Tambah data ustad</li>
-      </ol>
-     
-          <div class="card-body">
-          <?php
-
-          include 'conn.php';
-          $cek_dulu = "SELECT * FROM db_tbl_ustad ORDER BY id_ustad DESC LIMIT 0,1";
-          $mydata = mysqli_query($koneksi, $cek_dulu);
-          $row= mysqli_fetch_array($mydata);
-          // ID OTOMATIS//***************************************************
-          $awal=substr($row['id_ustad'],3,4)+1;
-          if($awal<10){
-            $auto='UST000'.$awal;
-          }elseif($awal > 9 && $awal <=99){
-            $auto='UST00'.$awal;
-          }else{
-            $auto='UST0'.$awal;
-          }
-          
-          ?>
-          <form method="POST" action="ustad.php">
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="id" id="id" value="<?php echo $auto ;?>" readonly>
-                    <label for="id">ID Ustad</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="namaUstad" id="namaUstad" class="form-control" placeholder="Full name" required="required">
-                    <label for="namaUstad">Full name</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="text" name="nip" id="nip" class="form-control" placeholder="Full name" required="required">
-                    <label for="nip">NIP</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                    <input type="email" name="emailUstad" id="emailUstad" class="form-control" placeholder="Email address" required="required">
-                    <label for="emailUstad">Email address</label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-label-group">
-                      <input type="password" name="passwordUstad" id="passwordUstad" class="form-control" placeholder="Password" required="required">
-                      <label for="passwordUstad">Password</label>
-                  </div>
-                </div>
-
-                <input type="submit" name="input" class="btn btn-primary btn-block"></input>
-              </form> 
-          </div>
-          <!-- Breadcrumbs-->
+        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
@@ -238,7 +155,7 @@ if(!isset($_SESSION['email'])) {
         </ol>
 
         <div class="card-body">
-        <form method="POST" action="santri.php">
+        <form method="POST" action="tambah_santri.php">
       <div class="form-group">
             <div class="form-label-group">
               <input type="text" name="idSantri" id="idSantri" class="form-control" placeholder="ID" required="required">
@@ -280,6 +197,95 @@ if(!isset($_SESSION['email'])) {
         </form>
   
           </div>
+
+              <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Tambah data ustad</li>
+      </ol>    
+          <div class="card-body">
+          <?php
+
+          include 'conn.php';
+          $cek_dulu = "SELECT * FROM db_tbl_ustad ORDER BY id_ustad DESC LIMIT 0,1";
+          $mydata = mysqli_query($koneksi, $cek_dulu);
+          $row= mysqli_fetch_array($mydata);
+          // ID OTOMATIS//***************************************************
+          $awal=substr($row['id_ustad'],3,4)+1;
+          if($awal<10){
+            $auto='UST000'.$awal;
+          }elseif($awal > 9 && $awal <=99){
+            $auto='UST00'.$awal;
+          }else{
+            $auto='UST0'.$awal;
+          }
+          
+          ?>
+              <form method="POST" action="ustad.php">
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="id" id="id" value="<?php echo $auto ;?>" readonly>
+                    <label for="id">ID Ustad</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="namaUstad" id="namaUstad" class="form-control" placeholder="Full name" required="required">
+                    <label for="namaUstad">Full name</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="nip" id="nip" class="form-control" placeholder="Full name" required="required">
+                    <label for="nip">NIP</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="email" name="emailUstad" id="emailUstad" class="form-control" placeholder="Email address" required="required">
+                    <label for="emailUstad">Email address</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                      <input type="password" name="passwordUstad" id="passwordUstad" class="form-control" placeholder="Password" required="required">
+                      <label for="passwordUstad">Password</label>
+                  </div>
+                </div>
+
+                <input type="submit" name="input" class="btn btn-primary btn-block"></input>
+              </form> 
+          </div>
+          <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Hapus Akun</li>
+        </ol>
+
+        <div class="card-body">
+        <form method="POST" action="hapus_akun.php">
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="email" name="emailAkun" id="emailAkun" class="form-control" placeholder="email" required="required">
+                  <label for="emailAkun">email</label>
+                </div>
+              </div>
+          <div class="form-group">
+            <select class="form-control" name="jenisAkun" required="required">
+              <option disabled selected value> -- Choose One --</option>
+              <option value="Ustad">Ustad</option>
+              <option value="Santri">Santri</option>
+            </select>
+          </div>
+
+          <input type="submit" name="hapusAkun" class="btn btn-primary btn-block" ></input>
+        </form>
+      </div>
+
       <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
