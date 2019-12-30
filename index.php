@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>PENCAPAIAN PESANTREN ---</title>
+  <title>PENCAPAIAN PESANTREN Al-Thufeil---</title>
 
   <!-- Custom fonts for this template-->
   <link href="modul/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +23,7 @@
 </head>
 
 <body>
+<center><img src="modul/template/img/Althufeil.jpg"></center>
 <div class="container">
     <div class="card card-register mx-auto mt-5">
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/ustad">USTAD</a>
