@@ -112,7 +112,7 @@ if(!isset($_SESSION['email'])) {
                     $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
                     $query = mysqli_query($koneksi,$cek);
                     $rows= mysqli_fetch_array($query);
-                    $row1=$rows['id_santri'];
+                    $row1=$rows['id_santri']; //mengambil id dari sesi
                     $pilih= "SELECT * FROM db_tbl_hafalan h JOIN db_tbl_ustad u ON u.id_ustad = h.id_ustad  WHERE h.id_santri='$row1'";
                     $kueri = mysqli_query($koneksi,$pilih);
                     // $row= mysqli_fetch_array($kueri);
