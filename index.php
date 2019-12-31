@@ -119,7 +119,6 @@
         </div> 
       </div>
       <!-- end slide-item -->
-	  
     </div>
     <!-- end swiper-wrapper -->
     <!-- swipper controls -->
