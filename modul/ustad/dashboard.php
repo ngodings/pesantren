@@ -198,6 +198,71 @@ if(!isset($_SESSION['email'])) {
           <input type="submit" name="input" class="btn btn-primary btn-block" ></input>
         </form>
       </div>
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.php">Penilaian Softskill</a>
+          </li>
+          <li class="breadcrumb-item active">Tambahkan untuk penilaian setiap santri!</li>
+        </ol>
+
+      <div class="card-body">
+        <?php
+
+        include 'conn.php';
+        $cek2 = "SELECT * FROM db_tbl_pelanggaran ORDER BY id_pelanggaran DESC LIMIT 0,1";
+        $mydata2 = mysqli_query($koneksi, $cek2);
+        $row2= mysqli_fetch_array($mydata2);
+        // ID OTOMATIS//***************************************************
+        $awal2=substr($row2['id_pelanggaran'],3,4)+1;
+        if($awal2<10){
+          $auto2='PG0000'.$awal2;
+        }elseif($awal2 > 9 && $awal2 <=99){
+          $auto2='PG000'.$awal2;
+        }else{
+          $auto2='PG00'.$awal2;
+        }
+        
+        ?>
+        <form method="POST" action="pelanggaran.php">
+          <div class="form-group">
+                <div class="form-label-group">
+                <input type="text" name="code" id="code" value="<?php echo $auto2 ;?>" readonly>
+                  <label for="code">ID</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="date" name="tanggal" id="tanggal" class="form-control" placeholder="Tanggal Pelaksanaan" required="required">
+                  <label for="tanggal">Tanggal Pelaksanaan</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" name="santri" id="santri" class="form-control" placeholder="ID Santri" required="required">
+                  <label for="santri">ID Santri</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" name="pelanggaran" id="pelanggaran" class="form-control" placeholder="Pelanggaran" required="required">
+                  <label for="pelanggaran">Pelanggaran</label>
+                </div>
+          </div>
+          <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="keterangan" required="required">
+                  <label for="keterangan">Keterangan</label>
+                </div>
+          </div>
+
+
+          <input type="submit" name="send" class="btn btn-primary btn-block" ></input>
+        </form>
+      </div>
+    
+  </div>
 </div>
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
