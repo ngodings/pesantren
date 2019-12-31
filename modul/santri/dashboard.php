@@ -126,8 +126,8 @@ if(!isset($_SESSION['email'])) {
             </div>
           </div>
           <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
+            <div class="card text-white bg-primary o-hidden h-100">
+              <div class="card-body">                          
                 <?php
                 include "conn.php";
                 $santri = $_SESSION['email'];
@@ -141,7 +141,7 @@ if(!isset($_SESSION['email'])) {
                 
                 ?>
                 <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
+                  <i class="fas fa-fw fa-comments"></i>
                 </div>
                 <div class="mr-5"><?php echo "Terdapat $hasil riwayat softskillmu!";?></div>
               </div>
@@ -152,7 +152,7 @@ if(!isset($_SESSION['email'])) {
                 </span>
               </a>
             </div>
-          </div>
+          </div>         
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
