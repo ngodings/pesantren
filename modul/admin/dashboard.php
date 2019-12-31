@@ -48,7 +48,7 @@ if(!isset($_SESSION['email'])) {
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-         <form method="POST" action="logout.php">
+         
           <a class="dropdown-item" href="logout.php" type="submit">Logout</a>
         </div>
       </li>
@@ -223,7 +223,7 @@ if(!isset($_SESSION['email'])) {
           }
           
           ?>
-              <form method="POST" action="ustad.php">
+              <form method="POST" action="tambah_ustad.php">
                 <div class="form-group">
                   <div class="form-label-group">
                     <input type="text" name="id" id="id" value="<?php echo $auto ;?>" readonly>
