@@ -90,6 +90,9 @@ if(!isset($_SESSION['email'])) {
           <span>Pelanggaran</span></a>
       </li>
 </ul>
+
+<div class="container-fluid">
+
 <!-- DataTables -->
 <div class="card mb-3">
     <div class="card-header">

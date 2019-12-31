@@ -97,13 +97,7 @@ if(!isset($_SESSION['email'])) {
       </li>
       <li class="breadcrumb-item active">Overview</li>
     </ol> 
-      <div class="row">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="dashboard.php">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Overview</li>
-        </ol> 
+      <div class="row">    
         <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-warning o-hidden h-100">
               <div class="card-body">
@@ -159,7 +153,6 @@ if(!isset($_SESSION['email'])) {
               </a>
             </div>
           </div>
-      </div>
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
@@ -188,6 +181,7 @@ if(!isset($_SESSION['email'])) {
               </a>
             </div>
           </div>
+        </div>
   </div>
 </div>
   <!-- Scroll to Top Button-->
