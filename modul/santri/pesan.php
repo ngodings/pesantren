@@ -86,7 +86,7 @@ if(!isset($_SESSION['email'])) {
       </li>
 </ul>
   <div class="container-fluid">
-  <div class="card-body">
+    <div class="card-body">
         <?php
 
         include 'conn.php';
