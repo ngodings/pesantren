@@ -87,6 +87,7 @@ if(!isset($_SESSION['email'])) {
   <div class="container-fluid">
     <!-- Breadcrumbs-->
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
         <a href="dashboard.php">Dashboard</a>
@@ -95,6 +96,8 @@ if(!isset($_SESSION['email'])) {
     </ol> 
       <div class="row">
 =======
+=======
+>>>>>>> 73978b543e5763fcb038e4f174d7c23878e66ada
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
@@ -158,8 +161,11 @@ if(!isset($_SESSION['email'])) {
             </div>
           </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
       </div>
 =======
+=======
+>>>>>>> 73978b543e5763fcb038e4f174d7c23878e66ada
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
@@ -188,6 +194,9 @@ if(!isset($_SESSION['email'])) {
               </a>
             </div>
           </div>
+<<<<<<< HEAD
+>>>>>>> 73978b543e5763fcb038e4f174d7c23878e66ada
+=======
 >>>>>>> 73978b543e5763fcb038e4f174d7c23878e66ada
   </div>
 </div>
