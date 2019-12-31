@@ -68,14 +68,19 @@ if(!isset($_SESSION['email'])) {
       <span>Dashboard</span>
     </a>
   </li>
-  <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link" href="profile.php">
+          <i class="fas fa-fw fa-mask"></i>
+          <span>Profile</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="hafalan.php">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-book"></i>
           <span>Hafalan</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="softskill.php">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-medal"></i>
           <span>Softskill</span></a>
       </li>
       <li class="nav-item">
