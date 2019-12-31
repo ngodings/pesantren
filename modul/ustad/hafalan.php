@@ -6,6 +6,8 @@
         
         $id=$_POST['id'];
         $tanggal=$_POST['tanggalHafalan'];
+        $surah=$_POST['surah'];
+        $juz=$_POST['juz'];
         $pencapaian=$_POST['pencapaian'];
         $santri=$_POST['idSantri'];
         $ustad = $_SESSION['email'];
@@ -15,7 +17,7 @@
         $row1=$rows['id_ustad'];
 
         if (isset($_POST['submit'])){
-            $query="INSERT INTO db_tbl_hafalan VALUES ('$id', '$tanggal', '$pencapaian', '$santri', '$row1')";
+            $query="INSERT INTO db_tbl_hafalan VALUES ('$id', '$tanggal', '$surah' , '$juz',  '$pencapaian', '$santri', '$row1')";
             $sql=mysqli_query($koneksi, $query);
 
             if($sql){

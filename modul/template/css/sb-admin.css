@@ -10628,7 +10628,7 @@ body {
 }
 
 .navbar-nav .nav-item.active .nav-link {
-  color: #fff;
+  color: #007bff;
 }
 
 .navbar-nav .nav-item.dropdown .dropdown-toggle::after {
@@ -10729,6 +10729,7 @@ body {
     text-align: left;
     padding: 1rem;
     width: 225px;
+    color: #007bff;
   }
   .sidebar .nav-item .nav-link span {
     font-size: 1rem;

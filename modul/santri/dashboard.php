@@ -51,7 +51,6 @@ if(!isset($_SESSION['email'])) {
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-         <form method="POST" action="logout.php">
           <a class="dropdown-item" href="logout.php" type="submit">Logout</a>
         </div>
       </li>
@@ -69,30 +68,40 @@ if(!isset($_SESSION['email'])) {
       <span>Dashboard</span>
     </a>
   </li>
-  <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="hafalan.php">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-book"></i>
           <span>Hafalan</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="softskill.php">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-medal"></i>
           <span>Softskill</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pesan.php">
-          <i class="fas fa-fw fa-mail-bulk"></i>
-          <span>Pesan</span></a>
+        <a class="nav-link" href="pelanggaran.php">
+          <i class="fas fa-fw fa-medal"></i>
+          <span>Pelanggaran</span></a>
       </li>
 </ul>
   <div class="container-fluid">
     <!-- Breadcrumbs-->
+<<<<<<< HEAD
     <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="dashboard.php">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Overview</li>
+    </ol> 
+      <div class="row">
+=======
+        <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="dashboard.php">Dashboard</a>
           </li>
           <li class="breadcrumb-item active">Overview</li>
         </ol> 
+>>>>>>> 73978b543e5763fcb038e4f174d7c23878e66ada
         <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-warning o-hidden h-100">
               <div class="card-body">
@@ -148,6 +157,38 @@ if(!isset($_SESSION['email'])) {
               </a>
             </div>
           </div>
+<<<<<<< HEAD
+      </div>
+=======
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-danger o-hidden h-100">
+              <div class="card-body">
+                <?php
+                include "conn.php";
+                $santri3 = $_SESSION['email'];
+                $cek3 = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
+                $query3 = mysqli_query($koneksi,$cek3);
+                $row3= mysqli_fetch_array($query3);
+                $rows3=$row3['id_santri'];
+                $sql3 = "SELECT * FROM db_tbl_pelanggaran WHERE id_santri='$rows3' ";
+                $kueri3 = mysqli_query($koneksi,$sql3);
+                $hasil3 = mysqli_num_rows($kueri3);     
+                
+                ?>
+                <div class="card-body-icon">
+                  <i class="fas fa-fw fa-life-ring"></i>
+                </div>
+                <div class="mr-5"><?php echo "Perhatian! Terdapat $hasil3 riwayat pelanggaranmu!";?></div>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="pelanggaran.php">
+                <span class="float-left">View Details</span>
+                <span class="float-right">
+                  <i class="fas fa-angle-right"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+>>>>>>> 73978b543e5763fcb038e4f174d7c23878e66ada
   </div>
 </div>
   <!-- Scroll to Top Button-->

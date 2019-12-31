@@ -9,8 +9,8 @@ if(!isset($_SESSION['email'])) {
 
 }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,54 +89,42 @@ if(!isset($_SESSION['email'])) {
           <i class="fas fa-fw fa-medal"></i>
           <span>Pelanggaran</span></a>
       </li>
-</ul>
-<div class="container-fluid">
 
+</ul>
+
+<div class="container-fluid">
 <!-- DataTables -->
 <div class="card mb-3">
     <div class="card-header">
-        <h5>Tabel Hafalan</h5>
+        <h5>Profile Santri</h5>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Tanggal Pelaksanaan</th>
-                        <th>Surah</th>
-                        <th>Juz</th>
-                        <th>Pencapaian Hafalan (@lembar)</th>
-                        <th>Ustad Pengampu</th>
-
+                        <th>ID Santri</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Asal</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                    include 'conn.php';
                     $santri = $_SESSION['email'];
-                    $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
-                    $query = mysqli_query($koneksi,$cek);
-                    $rows= mysqli_fetch_array($query);
-                    $row1=$rows['id_santri']; //mengambil id dari sesi
-                    $pilih= "SELECT * FROM db_tbl_hafalan h JOIN db_tbl_ustad u ON u.id_ustad = h.id_ustad  WHERE h.id_santri='$row1'";
-                    $kueri = mysqli_query($koneksi,$pilih);
-                    // $row= mysqli_fetch_array($kueri);
-                    // $ustad=$row['id_ustad'];
-                    // $cek_ustad = "SELECT nama FROM db_tbl_ustad WHERE id_ustad='$ustad'";
-                    // $query_ust = mysqli_query($koneksi,$cek_ustad);
-                    // $row2=mysqli_fetch_array($query_ust);
-                    $temp=1;
-                    while($row = mysqli_fetch_array($kueri)){
-                    ?>
+                    $sql = "SELECT * FROM db_tbl_santri";
+                    $query = mysqli_query($conn, $sql);
+                    while($row = mysqli_fetch_array($query)){
+                ?>
+                }
                   <tr>
                   <?php  ?>
-                    <td><?php print $temp++;?></td>
-                    <td><?php print $row['tanggal_hafalan'];?></td>
-                    <td><?php print $row['surah'];?></td>
-                    <td><?php print $row['juz'];?></td>
-                    <td><?php print $row['pencapaian_hafalan'];?></td>
-                    <td><?php print $row['nama'];?></th></td>
+                    <td><?php print $row['id_santri'];?></td>
+                    <td><?php print $row['nama'];?></td>
+                    <td><?php print $row['kelas'];?></td>
+                    <td><?php print $row['asal'];?></td>
+                    <td><?php print $row['email'];?></th></td>
                   </tr>
                     <?php  } ?>
                 </tbody>

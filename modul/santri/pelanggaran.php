@@ -91,11 +91,10 @@ if(!isset($_SESSION['email'])) {
       </li>
 </ul>
 <div class="container-fluid">
-
 <!-- DataTables -->
 <div class="card mb-3">
     <div class="card-header">
-        <h5>Tabel Hafalan</h5>
+        <h5>Tabel Pelanggaran</h5>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -104,10 +103,8 @@ if(!isset($_SESSION['email'])) {
                     <tr>
                         <th>No</th>
                         <th>Tanggal Pelaksanaan</th>
-                        <th>Surah</th>
-                        <th>Juz</th>
-                        <th>Pencapaian Hafalan (@lembar)</th>
-                        <th>Ustad Pengampu</th>
+                        <th>Pelanggaran</th>
+                        <th>Keterangan</th>
 
                     </tr>
                 </thead>
@@ -119,7 +116,7 @@ if(!isset($_SESSION['email'])) {
                     $query = mysqli_query($koneksi,$cek);
                     $rows= mysqli_fetch_array($query);
                     $row1=$rows['id_santri']; //mengambil id dari sesi
-                    $pilih= "SELECT * FROM db_tbl_hafalan h JOIN db_tbl_ustad u ON u.id_ustad = h.id_ustad  WHERE h.id_santri='$row1'";
+                    $pilih= "SELECT * FROM db_tbl_pelanggaran WHERE id_santri='$row1'";
                     $kueri = mysqli_query($koneksi,$pilih);
                     // $row= mysqli_fetch_array($kueri);
                     // $ustad=$row['id_ustad'];
@@ -130,19 +127,19 @@ if(!isset($_SESSION['email'])) {
                     while($row = mysqli_fetch_array($kueri)){
                     ?>
                   <tr>
-                  <?php  ?>
+           
                     <td><?php print $temp++;?></td>
-                    <td><?php print $row['tanggal_hafalan'];?></td>
-                    <td><?php print $row['surah'];?></td>
-                    <td><?php print $row['juz'];?></td>
-                    <td><?php print $row['pencapaian_hafalan'];?></td>
-                    <td><?php print $row['nama'];?></th></td>
+                    <td><?php print $row['tanggal'];?></td>
+                    <td><?php print $row['pelanggaran'];?></td>
+                    <td><?php print $row['keterangan'];?></td>
+            
                   </tr>
                     <?php  } ?>
                 </tbody>
             </table>
         </div>
     </div>
+
 </div>
 </div>
 

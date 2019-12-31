@@ -80,9 +80,9 @@ if(!isset($_SESSION['email'])) {
           <span>Softskill</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pesan.php">
-          <i class="fas fa-fw fa-mail-bulk"></i>
-          <span>Pesan</span></a>
+        <a class="nav-link" href="pelanggaran.php">
+          <i class="fas fa-fw fa-medal"></i>
+          <span>Pelanggaran</span></a>
       </li>
 </ul>
 
@@ -123,7 +123,6 @@ if(!isset($_SESSION['email'])) {
                     // $row2=mysqli_fetch_array($query_ust);
                     $temp=1;
                     while($row = mysqli_fetch_array($kueri)){
-
                     ?>
                   <tr>
                     <td><?php print $temp++;?></td>

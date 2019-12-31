@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Des 2019 pada 07.42
+-- Waktu pembuatan: 30 Des 2019 pada 14.45
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -40,8 +40,7 @@ CREATE TABLE `db_tbl_admin` (
 --
 
 INSERT INTO `db_tbl_admin` (`username`, `email`, `nama`, `password`) VALUES
-('M3118076', 'rike@gmail.com', 'RIKE AQILA NURFI', 'cantik'),
-('rikeaqi', 'rikea@gmail.com', 'rike', 'rike');
+('M3118076', 'rike@gmail.com', 'RIKE AQILA NURFI', 'cantik');
 
 -- --------------------------------------------------------
 
@@ -52,10 +51,19 @@ INSERT INTO `db_tbl_admin` (`username`, `email`, `nama`, `password`) VALUES
 CREATE TABLE `db_tbl_hafalan` (
   `id_hafalan` varchar(10) NOT NULL,
   `tanggal_hafalan` date NOT NULL,
+  `surah` varchar(255) NOT NULL,
+  `juz` int(255) NOT NULL,
   `pencapaian_hafalan` int(255) NOT NULL,
   `id_santri` varchar(10) NOT NULL,
   `id_ustad` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `db_tbl_hafalan`
+--
+
+INSERT INTO `db_tbl_hafalan` (`id_hafalan`, `tanggal_hafalan`, `surah`, `juz`, `pencapaian_hafalan`, `id_santri`, `id_ustad`) VALUES
+('HA00001', '2019-09-12', 'Al - Baqarah', 1, 2, 'SANTR0001', 'UST0004');
 
 -- --------------------------------------------------------
 
@@ -65,7 +73,7 @@ CREATE TABLE `db_tbl_hafalan` (
 
 CREATE TABLE `db_tbl_pesan` (
   `id_pesan` varchar(10) NOT NULL,
-  `id_pengguna` varchar(10) NOT NULL,
+  `id_pengirim` varchar(10) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `email` int(255) NOT NULL,
   `pesan` tinytext NOT NULL
@@ -91,8 +99,10 @@ CREATE TABLE `db_tbl_santri` (
 --
 
 INSERT INTO `db_tbl_santri` (`id_santri`, `nama`, `kelas`, `asal`, `email`, `password`) VALUES
-('', 'Ryan Aditia', '', '', 'riskymiusdienha@student.uns.ac.id', ''),
-('SANTR0001', 'RIko Isnaini', '10', 'boyolali', 'riko@gmail.com', 'riko');
+('SANTR0001', 'RIko Isnaini', '10', 'boyolali', 'riko@gmail.com', 'riko'),
+('SANTR0002', 'Ritonawa Uga', '10', 'batam', 'uga@mail.com', 'elek'),
+('SANTR0012', 'lala manis', '12', 'omahlu', 'omah@mail.com', 'sisiap'),
+('SANTR0129', 'emang', '12', 'opo iyo', 'riko1@gmail.com', 'santri');
 
 -- --------------------------------------------------------
 
@@ -104,9 +114,19 @@ CREATE TABLE `db_tbl_softskill` (
   `id_softskill` varchar(10) NOT NULL,
   `tanggal_pelaksanaan` date NOT NULL,
   `id_santri` varchar(10) NOT NULL,
+  `id_ustad` varchar(20) NOT NULL,
   `pidato` int(255) NOT NULL,
   `imam` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `db_tbl_softskill`
+--
+
+INSERT INTO `db_tbl_softskill` (`id_softskill`, `tanggal_pelaksanaan`, `id_santri`, `id_ustad`, `pidato`, `imam`) VALUES
+('SK00001', '2019-01-09', 'SANTR0001', 'UST0001', 6, 7),
+('SK00002', '2019-09-12', 'SANTR0002', 'UST0004', 3, 4),
+('SK00003', '2019-09-13', 'SANTR0002', 'UST0004', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -127,7 +147,10 @@ CREATE TABLE `db_tbl_ustad` (
 --
 
 INSERT INTO `db_tbl_ustad` (`id_ustad`, `nama`, `nip`, `password`, `email`) VALUES
-('UST0001', 'Tufel', 1234567890, '12345', 'tufel@staff.pesantren.com');
+('UST0001', 'Tufel', 1234567890, '12345', 'tufel@staff.pesantren.com'),
+('UST0002', 'riski', 109432294, '12345', 'riski@admin.com'),
+('UST0003', 'Risky Miusdi', 2147483647, 'riski', 'riski@ustad.com'),
+('UST0004', 'Tufeil Noor', 987654321, 'tufeil', 'tufeil@ustad.com');
 
 --
 -- Indexes for dumped tables
@@ -152,7 +175,7 @@ ALTER TABLE `db_tbl_hafalan`
 --
 ALTER TABLE `db_tbl_pesan`
   ADD PRIMARY KEY (`id_pesan`),
-  ADD KEY `id_pengguna` (`id_pengguna`);
+  ADD KEY `id_pengguna` (`id_pengirim`);
 
 --
 -- Indeks untuk tabel `db_tbl_santri`
@@ -165,7 +188,8 @@ ALTER TABLE `db_tbl_santri`
 --
 ALTER TABLE `db_tbl_softskill`
   ADD PRIMARY KEY (`id_softskill`),
-  ADD KEY `id_santri` (`id_santri`);
+  ADD KEY `id_santri` (`id_santri`),
+  ADD KEY `id_ustad` (`id_ustad`);
 
 --
 -- Indeks untuk tabel `db_tbl_ustad`
@@ -188,14 +212,15 @@ ALTER TABLE `db_tbl_hafalan`
 -- Ketidakleluasaan untuk tabel `db_tbl_pesan`
 --
 ALTER TABLE `db_tbl_pesan`
-  ADD CONSTRAINT `db_tbl_pesan_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `db_tbl_ustad` (`id_ustad`),
-  ADD CONSTRAINT `db_tbl_pesan_ibfk_2` FOREIGN KEY (`id_pengguna`) REFERENCES `db_tbl_santri` (`id_santri`);
+  ADD CONSTRAINT `db_tbl_pesan_ibfk_1` FOREIGN KEY (`id_pengirim`) REFERENCES `db_tbl_ustad` (`id_ustad`),
+  ADD CONSTRAINT `db_tbl_pesan_ibfk_2` FOREIGN KEY (`id_pengirim`) REFERENCES `db_tbl_santri` (`id_santri`);
 
 --
 -- Ketidakleluasaan untuk tabel `db_tbl_softskill`
 --
 ALTER TABLE `db_tbl_softskill`
-  ADD CONSTRAINT `db_tbl_softskill_ibfk_1` FOREIGN KEY (`id_santri`) REFERENCES `db_tbl_santri` (`id_santri`);
+  ADD CONSTRAINT `db_tbl_softskill_ibfk_1` FOREIGN KEY (`id_santri`) REFERENCES `db_tbl_santri` (`id_santri`),
+  ADD CONSTRAINT `db_tbl_softskill_ibfk_2` FOREIGN KEY (`id_ustad`) REFERENCES `db_tbl_ustad` (`id_ustad`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
