@@ -145,14 +145,12 @@ if(!isset($_SESSION['email'])) {
     </div>
 </div>
 </div>
-
-
-
+  
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+  <i class="fas fa-angle-up"></i>
   </a>
-<script src="../template/vendor/jquery/jquery.min.js"></script>
+  <script src="../template/vendor/jquery/jquery.min.js"></script>
   <script src="../template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

@@ -85,14 +85,11 @@ if(!isset($_SESSION['email'])) {
           <span>Softskill</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pelanggaran.php">
-          <i class="fas fa-fw fa-medal"></i>
+        <a class="nav-link" href="pesan.php">
+          <i class="fas fa-fw fa-mail-bulk"></i>
           <span>Pelanggaran</span></a>
       </li>
-
 </ul>
-
-<div class="container-fluid">
 <!-- DataTables -->
 <div class="card mb-3">
     <div class="card-header">
@@ -112,13 +109,21 @@ if(!isset($_SESSION['email'])) {
                 </thead>
                 <tbody>
                 <?php
+                   include 'conn.php';
                     $santri = $_SESSION['email'];
-                    $sql = "SELECT * FROM db_tbl_santri";
-                    $query = mysqli_query($conn, $sql);
-                    while($row = mysqli_fetch_array($query)){
-                ?>
-                }
-                  <tr>
+                    $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
+                    $query = mysqli_query($koneksi,$cek);
+                    $rows= mysqli_fetch_array($query);
+                    $row1=$rows['id_santri']; //mengambil id dari sesi
+                    $pilih= "SELECT * FROM db_tbl_santri where email='$santri'";
+                    $kueri = mysqli_query($koneksi,$pilih);
+                    // $row= mysqli_fetch_array($kueri);
+                    // $ustad=$row['id_ustad'];
+                    // $cek_ustad = "SELECT nama FROM db_tbl_ustad WHERE id_ustad='$ustad'";
+                    // $query_ust = mysqli_query($koneksi,$cek_ustad);
+                    // $row2=mysqli_fetch_array($query_ust);
+                    while($row = mysqli_fetch_array($kueri)){
+                    ?>
                   <?php  ?>
                     <td><?php print $row['id_santri'];?></td>
                     <td><?php print $row['nama'];?></td>
@@ -134,13 +139,11 @@ if(!isset($_SESSION['email'])) {
 </div>
 </div>
 
-
-
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+  <i class="fas fa-angle-up"></i>
   </a>
-<script src="../template/vendor/jquery/jquery.min.js"></script>
+  <script src="../template/vendor/jquery/jquery.min.js"></script>
   <script src="../template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

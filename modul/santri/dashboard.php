@@ -69,6 +69,11 @@ if(!isset($_SESSION['email'])) {
     </a>
   </li>
       <li class="nav-item">
+        <a class="nav-link" href="profile.php">
+          <i class="fas fa-fw fa-mask"></i>
+          <span>Profile</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="hafalan.php">
           <i class="fas fa-fw fa-book"></i>
           <span>Hafalan</span></a>
@@ -79,8 +84,8 @@ if(!isset($_SESSION['email'])) {
           <span>Softskill</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pelanggaran.php">
-          <i class="fas fa-fw fa-medal"></i>
+        <a class="nav-link" href="pesan.php">
+          <i class="fas fa-fw fa-mail-bulk"></i>
           <span>Pelanggaran</span></a>
       </li>
 </ul>
