@@ -61,7 +61,7 @@ if(!isset($_SESSION['email'])) {
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
   <li class="nav-item active">
-    <a class="nav-link" href="tambah.php">
+    <a class="nav-link" href="dashboadr.php">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span>
     </a>
