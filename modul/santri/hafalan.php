@@ -86,7 +86,7 @@ if(!isset($_SESSION['email'])) {
       </li>
       <li class="nav-item">
         <a class="nav-link" href="pelanggaran.php">
-          <i class="fas fa-fw fa-medal"></i>
+          <i class="fas fa-fw fa-mail-bulk"></i>
           <span>Pelanggaran</span></a>
       </li>
 </ul>
