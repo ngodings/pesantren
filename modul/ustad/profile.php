@@ -79,14 +79,13 @@ if(!isset($_SESSION['email'])) {
 <div class="container-fluid">
 
 <!-- DataTables -->
-  <div class="card mb-3">
+<div class="card mb-3">
     <div class="card-header">
         <h5>Profile Ustad</h5>
     </div>
     <div class="card-body">
-    	<legend>
                 <?php
-                   include 'conn.php';
+                  include 'conn.php';
                     $ustad = $_SESSION['email'];
                     $cek = "SELECT id_ustad FROM db_tbl_ustad WHERE email='$ustad'";
                     $query = mysqli_query($koneksi,$cek);
@@ -101,18 +100,49 @@ if(!isset($_SESSION['email'])) {
                     // $row2=mysqli_fetch_array($query_ust);
                     while($row = mysqli_fetch_array($kueri)){
                     ?>
-                    <h3> Profile Ustad <?php print $row['nama'];?> </h3>
-                    <center>
-                    ID Ustad 	: <?php print $row['id_ustad'];?><br>
-                    NIP : <?php print $row['nip'];?><br>
-                    Nama 		: <?php print $row['nama'];?><br>
-                    Email 		: <?php print $row['email'];?><br>
-                    Password 		: <?php print $row['password'];?><br>
-                	</center>
-                    <?php  } ?>
-      </legend>
-    </div>
-  </div>
+                                      
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="profile.php">Profile Ustad</a>
+          </li>
+          <li class="breadcrumb-item active">Edit data profile Ustad</li>
+        </ol>
+     <div class="form-group">
+            <div class="form-label-group">
+            <input type="text" name="id_ustad" id="id_ustad" class="form-control" value="<?php print $row['id_ustad'];?>" readonly>
+              <label>ID Ustad</label>
+            </div>
+          </div> 
+        <div class="form-group">
+            <div class="form-label-group">
+            <input type="text" name="nip" id="nip" class="form-control" value="<?php print $row['nip'];?>" readonly>
+                <label for="nip">NIP</label>
+            </div>
+        </div>
+          <div class="form-group">
+            <div class="form-label-group">
+            <input type="text" name="nama" id="nama" class="form-control" value="<?php print $row['nama'];?>" readonly>
+                <label for="nama">Nama</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+            <input type="text" name="email" id="email" class="form-control" value="<?php print $row['email'];?>" readonly>
+                <label for="email">Email</label>
+            </div>
+            </div>
+          <div class="form-group">
+            <div class="form-label-group">
+            <input type="text" name="password" id="password" class="form-control" value="<?php print $row['password'];?>" readonly>
+                <label for="password">Password</label>
+            </div>
+          </div>
+          <a href="edit.php?id=<?php echo $row['id_ustad']; ?>"class="btn btn-primary btn-block" >Edit</a>
+        </form>
+      </div>
+  <?php  } ?>
 </div>
 
   <!-- Scroll to Top Button-->
