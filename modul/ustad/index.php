@@ -50,10 +50,7 @@
             </div>
           </div>
           <input type="submit" class="btn btn-primary btn-block" value="login"></input>
-        </form>
-        <div class="text-center">
-          <a class="d-block small" href="reset_password.php">Forgot Password?</a>
-        </div>
+        </form>        
       </div>
     </div> 
 
