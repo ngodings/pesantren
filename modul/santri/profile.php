@@ -99,18 +99,7 @@ if(!isset($_SESSION['email'])) {
         <h5>Profile Santri</h5>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>ID Santri</th>
-                        <th>Nama</th>
-                        <th>Kelas</th>
-                        <th>Asal</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
+    	<legend>
                 <?php
                    include 'conn.php';
                     $santri = $_SESSION['email'];
@@ -127,19 +116,16 @@ if(!isset($_SESSION['email'])) {
                     // $row2=mysqli_fetch_array($query_ust);
                     while($row = mysqli_fetch_array($kueri)){
                     ?>
-                  <?php  ?>
-                    <td><?php print $row['id_santri'];?></td>
-                    <td><?php print $row['nama'];?></td>
-                    <td><?php print $row['kelas'];?></td>
-                    <td><?php print $row['asal'];?></td>
-                    <td><?php print $row['email'];?></th></td>
-                  </tr>
+                    <h3> Profile Santri <?php print $row['nama'];?> </h3>
+                    <center>
+                    ID Santri 	: <?php print $row['id_santri'];?><br>
+                    Nama Santri : <?php print $row['nama'];?><br>
+                    Kelas 		: <?php print $row['kelas'];?><br>
+                    Asal 		: <?php print $row['asal'];?><br>
+                    Email 		: <?php print $row['email'];?><br>
+                	</center>
                     <?php  } ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+        </legend>
 </div>
 
   <!-- Scroll to Top Button-->

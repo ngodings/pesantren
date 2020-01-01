@@ -85,7 +85,7 @@ if(!isset($_SESSION['email'])) {
       </li>
       <li class="nav-item">
         <a class="nav-link" href="pelanggaran.php">
-          <i class="fas fa-fw fa-male"></i>
+          <i class="fas fa-fw fa-mail-bulk"></i>
           <span>Pelanggaran</span></a>
       </li>
 </ul>
@@ -98,12 +98,6 @@ if(!isset($_SESSION['email'])) {
       <li class="breadcrumb-item active">Overview</li>
     </ol> 
       <div class="row">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="dashboard.php">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Overview</li>
-        </ol> 
         <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-warning o-hidden h-100">
               <div class="card-body">
@@ -144,7 +138,6 @@ if(!isset($_SESSION['email'])) {
                 $sql = "SELECT * FROM db_tbl_softskill WHERE id_santri='$row1' ";
                 $kueri = mysqli_query($koneksi,$sql);
                 $hasil = mysqli_num_rows($kueri);     
-                
                 ?>
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-life-ring"></i>
@@ -173,12 +166,11 @@ if(!isset($_SESSION['email'])) {
                 $sql3 = "SELECT * FROM db_tbl_pelanggaran WHERE id_santri='$rows3' ";
                 $kueri3 = mysqli_query($koneksi,$sql3);
                 $hasil3 = mysqli_num_rows($kueri3);     
-                
                 ?>
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-life-ring"></i>
                 </div>
-                <div class="mr-5"><?php echo "Perhatian! Terdapat $hasil3 riwayat pelanggaranmu!";?></div>
+                <div class="mr-5"><?php echo "Terdapat $hasil3 riwayat pelanggaranmu!";?></div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="pelanggaran.php">
                 <span class="float-left">View Details</span>
@@ -188,7 +180,7 @@ if(!isset($_SESSION['email'])) {
               </a>
             </div>
           </div>
-  </div>
+      </div>
 </div>
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
