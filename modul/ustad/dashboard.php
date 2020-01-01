@@ -66,7 +66,15 @@ if(!isset($_SESSION['email'])) {
       <span>Dashboard</span>
     </a>
   </li>
+  <li class="nav-item">
+        <a class="nav-link" href="profile.php">
+          <i class="fas fa-fw fa-mask"></i>
+          <span>Profile</span></a>
+      </li>
 </ul>
+
+
+
 <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">

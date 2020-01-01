@@ -22,7 +22,7 @@ if(!isset($_SESSION['email'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>DASHBOARD SANTRI</title>
+  <title>DASHBOARD USTAD</title>
 
   <!-- Custom fonts for this template-->
   <link href="../template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@ if(!isset($_SESSION['email'])) {
 <body>
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="dashboard.php">DASHBOARD SANTRI</a>
+    <a class="navbar-brand mr-1" href="dashboard.php">DASHBOARD USTAD</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -73,41 +73,26 @@ if(!isset($_SESSION['email'])) {
         <a class="nav-link" href="profile.php">
           <i class="fas fa-fw fa-mask"></i>
           <span>Profile</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="hafalan.php">
-          <i class="fas fa-fw fa-book"></i>
-          <span>Hafalan</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="softskill.php">
-          <i class="fas fa-fw fa-medal"></i>
-          <span>Softskill</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pelanggaran.php">
-          <i class="fas fa-fw fa-mail-bulk"></i>
-          <span>Pelanggaran</span></a>
-      </li>
+      </li>    
 </ul>
 
 <div class="container-fluid">
 
 <!-- DataTables -->
-<div class="card mb-3">
+  <div class="card mb-3">
     <div class="card-header">
-        <h5>Profile Santri</h5>
+        <h5>Profile Ustad</h5>
     </div>
     <div class="card-body">
     	<legend>
                 <?php
                    include 'conn.php';
-                    $santri = $_SESSION['email'];
-                    $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
+                    $ustad = $_SESSION['email'];
+                    $cek = "SELECT id_ustad FROM db_tbl_ustad WHERE email='$ustad'";
                     $query = mysqli_query($koneksi,$cek);
                     $rows= mysqli_fetch_array($query);
-                    $row1=$rows['id_santri']; //mengambil id dari sesi
-                    $pilih= "SELECT * FROM db_tbl_santri where email='$santri'";
+                    $row1=$rows['id_ustad']; //mengambil id dari sesi
+                    $pilih= "SELECT * FROM db_tbl_ustad where email='$ustad'";
                     $kueri = mysqli_query($koneksi,$pilih);
                     // $row= mysqli_fetch_array($kueri);
                     // $ustad=$row['id_ustad'];
@@ -116,16 +101,18 @@ if(!isset($_SESSION['email'])) {
                     // $row2=mysqli_fetch_array($query_ust);
                     while($row = mysqli_fetch_array($kueri)){
                     ?>
-                    <h3> Profile Santri <?php print $row['nama'];?> </h3>
+                    <h3> Profile Ustad <?php print $row['nama'];?> </h3>
                     <center>
-                    ID Santri 	: <?php print $row['id_santri'];?><br>
-                    Nama Santri : <?php print $row['nama'];?><br>
-                    Kelas 		: <?php print $row['kelas'];?><br>
-                    Asal 		: <?php print $row['asal'];?><br>
+                    ID Ustad 	: <?php print $row['id_ustad'];?><br>
+                    NIP : <?php print $row['nip'];?><br>
+                    Nama 		: <?php print $row['nama'];?><br>
                     Email 		: <?php print $row['email'];?><br>
+                    Password 		: <?php print $row['password'];?><br>
                 	</center>
                     <?php  } ?>
-        </legend>
+      </legend>
+    </div>
+  </div>
 </div>
 
   <!-- Scroll to Top Button-->
