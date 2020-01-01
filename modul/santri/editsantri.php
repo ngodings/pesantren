@@ -99,12 +99,13 @@ if(!isset($_SESSION['email'])) {
         <h5>Profile Santri</h5>
     </div>
     <div class="card-body">
+    <form method="POST">
                 <?php
                    include 'conn.php';
                     $santri = $_SESSION['email'];
                     $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
-                    $query = mysqli_query($koneksi,$cek);
-                    $rows= mysqli_fetch_array($query);
+		            $query = mysqli_query($koneksi,$cek);
+        		    $rows= mysqli_fetch_array($query);
                     $row1=$rows['id_santri']; //mengambil id dari sesi
                     $pilih= "SELECT * FROM db_tbl_santri where email='$santri'";
                     $kueri = mysqli_query($koneksi,$pilih);
@@ -114,50 +115,68 @@ if(!isset($_SESSION['email'])) {
                     // $query_ust = mysqli_query($koneksi,$cek_ustad);
                     // $row2=mysqli_fetch_array($query_ust);
                     while($row = mysqli_fetch_array($kueri)){
-                    ?>
+                    	if(isset($_GET['id_santri'])){
+						$id_santri=$_GET['id_santri'];
+							if(isset($_POST['Update'])){
+							$nama=$_POST['nama'];
+							$kelas=$_POST['kelas'];
+							$asal=$_POST['asal'];
+							$sql="UPDATE db_tbl_santri SET 
+								nama='$nama',
+								kelas='$kelas',
+								asal='$asal',
+		  					WHERE id_santri='$id_santri'";
+					mysqli_query($conn,$sql) or die(mysqli_error($conn));
+			}
+			$sql="SELECT * FROM db_tbl_santri WHERE id_santri='$id_santri'";
+		}
+            ?>
+
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="profile.php">Profile Santri</a>
+            <a href="dashboard.php">Profile Santri</a>
           </li>
           <li class="breadcrumb-item active">Edit data profile santri</li>
         </ol>
      <div class="form-group">
             <div class="form-label-group">
-            <input type="text" name="id" id="id" class="form-control" value="<?php print $row['id_santri'];?>" readonly>
+            <input type="text" name="id_santri" id="id_santri" class="form-control" value="<?php print $row['id_santri'];?>" readonly>
               <label>ID Santri</label>
             </div>
           </div> 
         <div class="form-group">
             <div class="form-label-group">
-            <input type="text" name="nama" id="nama" class="form-control" value="<?php print $row['nama'];?>" readonly>
+             <input type="text" name="nama" id="nama" class="form-control" placeholder="nama" value="<?php print $row['nama'];?>"required="required">
                 <label for="nama">Nama</label>
             </div>
         </div>
           <div class="form-group">
             <div class="form-label-group">
-            <input type="text" name="kelas" id="kelas" class="form-control" value="<?php print $row['kelas'];?>" readonly>
+            <input type="text" name="kelas" id="kelas" class="form-control" value="<?php print $row['kelas'];?>"required="required">
                 <label for="kelas">Kelas</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-            <input type="text" name="asal" id="asal" class="form-control" value="<?php print $row['asal'];?>" readonly>
+            <input type="text" name="asal" id="asal" class="form-control" value="<?php print $row['asal'];?>"required="required">
                 <label for="asal">Asal</label>
             </div>
             </div>
           <div class="form-group">
             <div class="form-label-group">
-            <input type="text" name="email" id="email" class="form-control" value="<?php print $row['email'];?>" readonly>
+            <input type="text" name="email" id="email" class="form-control" value="<?php print $row['email'];?>"readonly>
                 <label for="email">Email</label>
             </div>
           </div>
-          <a href="editsantri.php?id=<?php echo $row['id_santri']; ?>"class="btn btn-primary btn-block" >Edit</a>
+         <input type="submit" name="Update" class="btn btn-primary btn-block" ></input>
         </form>
       </div>
 	<?php  } ?>
+
 </div>
+
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
@@ -181,6 +200,6 @@ if(!isset($_SESSION['email'])) {
   <!-- Demo scripts for this page-->
   <script src="../template/js/demo/datatables-demo.js"></script>
   <script src="../template/js/demo/chart-area-demo.js"></script>
-
+</form>
 </body>
 </html>
