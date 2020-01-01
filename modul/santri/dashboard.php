@@ -126,7 +126,7 @@ if(!isset($_SESSION['email'])) {
             </div>
           </div>
           <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card text-white bg-primary o-hidden h-100">
               <div class="card-body">
                 <?php
                 include "conn.php";
@@ -152,7 +152,6 @@ if(!isset($_SESSION['email'])) {
               </a>
             </div>
           </div>
-      </div>
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
