@@ -52,16 +52,16 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-7">
-                <span data-swiper-parallax="300" class="text-primary font-extra font-md">Selamat Datang</span>
-                <h1 class="mt-3 mb-5 text-lg text-white" data-swiper-parallax="400">Silahkan pilih akses yang bisa anda masuki, Terimakasih</h1>
+                <span data-swiper-parallax="300" class="text-primary font-extra font-md">Selamat Datang Pesantren Al-Thufeil.</span>
+                <h1 class="mt-3 mb-5 text-lg text-white" data-swiper-parallax="400">Silahkan pilih hak akses yang sesuai dengan anda, Terima kasih.</h1>
       					<div class="card card-register mx-auto mt-5">
-      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/ustad">USTAD</a>
+      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/ustad">Apakah anda USTAD?</a>
       					</div>
       					<div class="card card-register mx-auto mt-5">
-      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">SANTRI</a>
+      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">Apakah anda SANTRI?</a>
       					</div>
       					<div class="card card-register mx-auto mt-5">
-      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/admin">ADMIN</a>
+      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/admin">Apakah anda ADMIN?</a>
       					</div>
       			  </div>
             </div>			
@@ -77,16 +77,16 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-7">
-                <span data-swiper-parallax="300" class="text-primary font-extra font-md">Selamat Datang</span>
-                <h1 class="mt-3 mb-5 text-lg text-white" data-swiper-parallax="400">Silahkan pilih akses yang bisa anda masuki, Terimakasih</h1>
+                <span data-swiper-parallax="300" class="text-primary font-extra font-md">Selamat Datang Pesantren Al-Thufeil.</span>
+                <h1 class="mt-3 mb-5 text-lg text-white" data-swiper-parallax="400">Silahkan pilih hak akses yang sesuai dengan anda, Terima kasih.</h1>
             		<div class="card card-register mx-auto mt-5">
-            			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/ustad">USTAD</a>
+            			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/ustad">Apakah anda USTAD?</a>
             		</div>
             		<div class="card card-register mx-auto mt-5">
-            			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">SANTRI</a>
+            			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">Apakah anda SANTRI?</a>
             		</div>
             		<div class="card card-register mx-auto mt-5">
-            			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/admin">ADMIN</a>
+            			<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/admin">Apakah anda ADMIN?</a>
             		</div>
             	</div>
             </div>			
@@ -102,16 +102,16 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-7">
-                <span data-swiper-parallax="300" class="text-primary font-extra font-md">Selamat Datang</span>
-                <h1 class="mt-3 mb-5 text-lg text-white" data-swiper-parallax="400">Silahkan pilih akses yang bisa anda masuki, Terimakasih</h1>
+                <span data-swiper-parallax="300" class="text-primary font-extra font-md">Selamat Datang Pesantren Al-Thufeil.</span>
+                <h1 class="mt-3 mb-5 text-lg text-white" data-swiper-parallax="400">Silahkan pilih hak akses yang sesuai dengan anda, Terima kasih.</h1>
       					<div class="card card-register mx-auto mt-5">
-      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/ustad">USTAD</a>
+      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/ustad">Apakah anda USTAD?</a>
       					</div>
       					<div class="card card-register mx-auto mt-5">
-      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">SANTRI</a>
+      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/santri">Apakah anda SANTRI?</a>
       					</div>
       					<div class="card card-register mx-auto mt-5">
-      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/admin">ADMIN</a>
+      						<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="modul/admin">Apakah anda ADMIN?</a>
       					</div>
       			  </div>
             </div>			

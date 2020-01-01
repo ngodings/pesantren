@@ -61,7 +61,7 @@ if(!isset($_SESSION['email'])) {
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
   <li class="nav-item active">
-    <a class="nav-link" href="dashboadr.php">
+    <a class="nav-link" href="dashboard.php">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span>
     </a>
@@ -210,7 +210,7 @@ if(!isset($_SESSION['email'])) {
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="dashboard.php">Penilaian Softskill</a>
+            <a href="dashboard.php">Pelanggaran</a>
           </li>
           <li class="breadcrumb-item active">Tambahkan untuk penilaian setiap santri!</li>
         </ol>
