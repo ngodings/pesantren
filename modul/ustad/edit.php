@@ -92,7 +92,7 @@ if(!isset($_SESSION['email'])) {
     		            $query = mysqli_query($koneksi,$cek);
             		    $rows= mysqli_fetch_array($query);
                     $row1=$rows['id_ustad']; //mengambil id dari sesi
-                    $pilih= "SELECT * FROM db_tbl_santri where email='$ustad'";
+                    $pilih= "SELECT * FROM db_tbl_ustad where email='$ustad'";
                     $kueri = mysqli_query($koneksi,$pilih);
                     // $row= mysqli_fetch_array($kueri);
                     // $ustad=$row['id_ustad'];
@@ -103,10 +103,12 @@ if(!isset($_SESSION['email'])) {
                     	if(isset($_GET['id_ustad'])){
 						  $id_ustad=$_GET['id_ustad'];
 							if(isset($_POST['Update'])){
+              $nip=$_POST['nip'];
 							$nama=$_POST['nama'];
 							$email=$_POST['email'];
 							$password=$_POST['password'];
 							$sql="UPDATE db_tbl_ustad SET 
+                nip='$nip',
 								namaUstad='$nama',
 								emailUstad='$email',
 								passwordUstad='$password',
