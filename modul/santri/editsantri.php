@@ -35,7 +35,7 @@ if(!isset($_SESSION['email'])) {
 
 </head>
 
-<body>
+<boy>
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
     <a class="navbar-brand mr-1" href="dashboard.php">DASHBOARD SANTRI</a>
@@ -51,7 +51,6 @@ if(!isset($_SESSION['email'])) {
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-         <form method="POST" action="logout.php">
           <a class="dropdown-item" href="logout.php" type="submit">Logout</a>
         </div>
       </li>
@@ -99,13 +98,12 @@ if(!isset($_SESSION['email'])) {
         <h5>Profile Santri</h5>
     </div>
     <div class="card-body">
-    <form method="POST">
-                <?php
+    <?php
                    include 'conn.php';
                     $santri = $_SESSION['email'];
                     $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
-		            $query = mysqli_query($koneksi,$cek);
-        		    $rows= mysqli_fetch_array($query);
+                    $query = mysqli_query($koneksi,$cek);
+                    $rows= mysqli_fetch_array($query);
                     $row1=$rows['id_santri']; //mengambil id dari sesi
                     $pilih= "SELECT * FROM db_tbl_santri where email='$santri'";
                     $kueri = mysqli_query($koneksi,$pilih);
@@ -115,23 +113,8 @@ if(!isset($_SESSION['email'])) {
                     // $query_ust = mysqli_query($koneksi,$cek_ustad);
                     // $row2=mysqli_fetch_array($query_ust);
                     while($row = mysqli_fetch_array($kueri)){
-                    	if(isset($_GET['id_santri'])){
-						$id_santri=$_GET['id_santri'];
-							if(isset($_POST['Update'])){
-							$nama=$_POST['nama'];
-							$kelas=$_POST['kelas'];
-							$asal=$_POST['asal'];
-							$sql="UPDATE db_tbl_santri SET 
-								nama='$nama',
-								kelas='$kelas',
-								asal='$asal',
-		  					WHERE id_santri='$id_santri'";
-					mysqli_query($conn,$sql) or die(mysqli_error($conn));
-			}
-			$sql="SELECT * FROM db_tbl_santri WHERE id_santri='$id_santri'";
-		}
-            ?>
-
+                    ?>
+    <form method="POST">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
@@ -170,11 +153,46 @@ if(!isset($_SESSION['email'])) {
                 <label for="email">Email</label>
             </div>
           </div>
+                    <?php }?>
          <input type="submit" name="Update" class="btn btn-primary btn-block" ></input>
-        </form>
-      </div>
-	<?php  } ?>
 
+        </form>
+
+        <?php
+        include 'conn.php';
+        if(isset($_POST['Update'])) {
+            $nama = $_POST['nama'];
+            
+            $kelas = $_POST['kelas'];
+
+            $asal = $_POST['asal'];
+
+            $santri = $_SESSION['email'];
+            $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
+            $query = mysqli_query($koneksi,$cek);
+            $rows= mysqli_fetch_array($query);
+            $row1=$rows['id_santri'];
+
+            $ganti_data = "UPDATE db_tbl_santri SET nama='$nama', kelas='$kelas', asal='$asal' WHERE id_santri='$row1'";
+                    
+            $cek_ganti = mysqli_query($koneksi,$ganti_data);
+
+            echo '<script language="javascript">
+            alert ("Berhasil di update");
+            window.location="profile.php";
+            </script>';
+        }
+
+        ?>
+
+       
+
+        
+      </div>
+
+
+
+</div>
 </div>
 
 
@@ -200,6 +218,6 @@ if(!isset($_SESSION['email'])) {
   <!-- Demo scripts for this page-->
   <script src="../template/js/demo/datatables-demo.js"></script>
   <script src="../template/js/demo/chart-area-demo.js"></script>
-</form>
+
 </body>
 </html>

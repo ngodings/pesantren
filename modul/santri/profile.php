@@ -98,8 +98,9 @@ if(!isset($_SESSION['email'])) {
     <div class="card-header">
         <h5>Profile Santri</h5>
     </div>
+    
     <div class="card-body">
-                <?php
+    <?php
                    include 'conn.php';
                     $santri = $_SESSION['email'];
                     $cek = "SELECT id_santri FROM db_tbl_santri WHERE email='$santri'";
@@ -114,7 +115,8 @@ if(!isset($_SESSION['email'])) {
                     // $query_ust = mysqli_query($koneksi,$cek_ustad);
                     // $row2=mysqli_fetch_array($query_ust);
                     while($row = mysqli_fetch_array($kueri)){
-                    ?>
+                    ?> 
+            
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
@@ -153,7 +155,7 @@ if(!isset($_SESSION['email'])) {
                 <label for="email">Email</label>
             </div>
           </div>
-          <a href="editsantri.php?id=<?php echo $row['id_santri']; ?>"class="btn btn-primary btn-block" >Edit</a>
+          <a href="editsantri.php"class="btn btn-primary btn-block" >Edit</a>
         </form>
       </div>
 	<?php  } ?>

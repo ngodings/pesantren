@@ -51,7 +51,6 @@ if(!isset($_SESSION['email'])) {
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-         <form method="POST" action="logout.php">
           <a class="dropdown-item" href="logout.php" type="submit">Logout</a>
         </div>
       </li>
@@ -133,13 +132,7 @@ if(!isset($_SESSION['email'])) {
                 <label for="email">Email</label>
             </div>
             </div>
-          <div class="form-group">
-            <div class="form-label-group">
-            <input type="text" name="password" id="password" class="form-control" value="<?php print $row['password'];?>" readonly>
-                <label for="password">Password</label>
-            </div>
-          </div>
-          <a href="edit.php?id=<?php echo $row['id_ustad']; ?>"class="btn btn-primary btn-block" >Edit</a>
+          <a href="edit.php"class="btn btn-primary btn-block" >Edit</a>
         </form>
       </div>
   <?php  } ?>

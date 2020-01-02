@@ -51,7 +51,6 @@ if(!isset($_SESSION['email'])) {
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-         <form method="POST" action="logout.php">
           <a class="dropdown-item" href="logout.php" type="submit">Logout</a>
         </div>
       </li>
@@ -100,23 +99,6 @@ if(!isset($_SESSION['email'])) {
                     // $query_ust = mysqli_query($koneksi,$cek_ustad);
                     // $row2=mysqli_fetch_array($query_ust);
                     while($row = mysqli_fetch_array($kueri)){
-                    	if(isset($_GET['id_ustad'])){
-						  $id_ustad=$_GET['id_ustad'];
-							if(isset($_POST['Update'])){
-              $nip=$_POST['nip'];
-							$nama=$_POST['nama'];
-							$email=$_POST['email'];
-							$password=$_POST['password'];
-							$sql="UPDATE db_tbl_ustad SET 
-                nip='$nip',
-								namaUstad='$nama',
-								emailUstad='$email',
-								passwordUstad='$password',
-		  					WHERE id_ustad='$id_ustad'";
-					mysqli_query($conn,$sql) or die(mysqli_error($conn));
-			}
-			$sql="SELECT * FROM db_tbl_ustad WHERE id_ustad='$id_ustad'";
-		}
             ?>
 
     <div class="container-fluid">
@@ -147,21 +129,39 @@ if(!isset($_SESSION['email'])) {
           </div>
           <div class="form-group">
             <div class="form-label-group">
-            <input type="text" name="email" id="email" class="form-control" value="<?php print $row['email'];?>"required="required">
+            <input type="text" name="email" id="email" class="form-control" value="<?php print $row['email'];?>"required="required" readonly>
                 <label for="email">Email</label>
             </div>
             </div>
-          <div class="form-group">
-            <div class="form-label-group">
-            <input type="text" name="password" id="password" class="form-control" value="<?php print $row['password'];?>"required="required">
-                <label for="password">Password</label>
-            </div>
-          </div>
          <input type="submit" name="Update" class="btn btn-primary btn-block" ></input>
         </form>
+        <?php  } ?>
       </div>
-	<?php  } ?>
+      <?php
+        include 'conn.php';
+        if(isset($_POST['Update'])) {
+            $nip = $_POST['nip'];
+            
+            $nama = $_POST['nama'];
 
+            $ustad = $_SESSION['email'];
+            $cek = "SELECT id_ustad FROM db_tbl_ustad WHERE email='$ustad'";
+            $query = mysqli_query($koneksi,$cek);
+            $rows= mysqli_fetch_array($query);
+            $row1=$rows['id_ustad'];
+
+            $ganti_data = "UPDATE db_tbl_ustad SET nama='$nama', nip='$nip' WHERE id_ustad='$row1'";
+                    
+            $cek_ganti = mysqli_query($koneksi,$ganti_data);
+
+            echo '<script language="javascript">
+            alert ("Berhasil di update");
+            window.location="profile.php";
+            </script>';
+        }
+	?>
+
+</div>
 </div>
 
 

@@ -212,7 +212,7 @@ if(!isset($_SESSION['email'])) {
           <li class="breadcrumb-item">
             <a href="dashboard.php">Pelanggaran</a>
           </li>
-          <li class="breadcrumb-item active">Tambahkan untuk penilaian setiap santri!</li>
+          <li class="breadcrumb-item active">Tambahkan pelanggaran untuk setiap santri!</li>
         </ol>
 
       <div class="card-body">
