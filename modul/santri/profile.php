@@ -5,7 +5,7 @@ if(!isset($_SESSION['email'])) {
    header('location:index.php'); 
 } else { 
    $email = $_SESSION['email']; 
-   //$password = $_SESSION['password']; 
+   
 
 }
 
